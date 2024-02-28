@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -59,5 +60,6 @@ public class EmployeeProfile {
     @Column(name = "ANNUAL_QUANTITY", nullable = false)
     private Long annualQuantity;
 
-
+    @OneToMany(mappedBy = "employeeProfileID", fetch = FetchType.LAZY)
+    private Set<Commute> commute;       // 사원 출근 기록
 }

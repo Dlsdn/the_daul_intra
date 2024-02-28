@@ -1,7 +1,6 @@
 package com.the_daul_intra.mini.repository;
 
 import com.the_daul_intra.mini.dto.entity.Notice;
-import com.the_daul_intra.mini.dto.entity.NoticeReadStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;

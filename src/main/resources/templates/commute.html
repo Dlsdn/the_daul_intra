@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>출퇴근 기록</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <div th:replace="header :: headerFragment"></div>
+
+          <header class="main" style="margin-top: 15px">
+            <h2>출퇴근 기록</h2>
+          </header>
+
+          <section>
+            <table class="table-wrapper">
+              <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>사원명</th>
+                  <th>출근 시간</th>
+                  <th>출근 위도</th>
+                  <th>출근 경도</th>
+                  <th>출근 IP주소</th>
+                  <th>퇴근 시간</th>
+                  <th>퇴근 위도</th>
+                  <th>퇴근 경도</th>
+                  <th>퇴근 IP주소</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="commute : ${commuteList}">
+                  <td th:text="${commute.rowNum}"></td>
+                  <td th:text="${commute.employeeName}"></td>
+                  <td th:text="${commute.onWorkTime}"></td>
+                  <td th:text="${commute.onWorkLatitude}"></td>
+                  <td th:text="${commute.onWorkLongitude}"></td>
+                  <td th:text="${commute.onWorkIPAddress}"></td>
+                  <td th:text="${commute.offWorkTime}"></td>
+                  <td th:text="${commute.offWorkLatitude}"></td>
+                  <td th:text="${commute.offWorkLongitude}"></td>
+                  <td th:text="${commute.offWorkIPAddress}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+
+      <div th:replace="sidebar :: sidebarFragment"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

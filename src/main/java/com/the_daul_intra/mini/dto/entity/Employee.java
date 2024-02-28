@@ -32,5 +32,4 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<NoticeReadStatus> noticeReadStatuses;
-
 }

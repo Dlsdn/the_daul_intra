@@ -1,191 +1,228 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8">
-		<title>환영합니다</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+  <head>
+    <meta charset="UTF-8" />
+    <title>환영합니다</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <div th:replace="header :: headerFragment"></div>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-
-							<div th:replace="header :: headerFragment"></div>
-
-							<section
-									id="indexDataSection"
-									style="
+          <section
+            id="indexDataSection"
+            style="
               display: grid;
               grid-template-rows: 1fr 1fr;
               grid-template-columns: 3fr 1fr;
             "
-							>
-								<article
-										style="
+          >
+            <article
+              style="
                 padding: 20px;
                 margin: 20px;
                 border-radius: 10px;
                 border: 1px solid rgb(255, 189, 182);
               "
-								>
-									<h2 style="text-align: center; margin-bottom: 30px">
-										최근 공지사항
-									</h2>
-									<p style="display: grid; grid-template-columns: 1fr 1fr;">
-										<span th:text="${indexData.noticeTitle}">제목</span>
-										<span th:text="${indexData.noticeRegDate}" style="text-align: right">작성일</span>
-									</p>
-									<p>
-										<span th:text="${indexData.noticeContent}">내용</span>
-									</p>
-								</article>
+            >
+              <h2 style="text-align: center; margin-bottom: 30px">
+                최근 공지사항
+              </h2>
+              <p style="display: grid; grid-template-columns: 1fr 1fr">
+                <span th:text="${indexData.noticeTitle}">제목</span>
+                <span
+                  th:text="${indexData.noticeRegDate}"
+                  style="text-align: right"
+                  >작성일</span
+                >
+              </p>
+              <p>
+                <span th:text="${indexData.noticeContent}">내용</span>
+              </p>
+            </article>
 
-								<article
-										style="
-											grid-row-start: 1;
-											grid-row-end: 3;
-											grid-column-start: 2;
-											padding: 20px;
-											margin: 20px;
-											border-radius: 10px;
-											border: 1px solid rgb(255, 189, 182);
-										"
-								>
-									<h2 style="text-align: center; margin-bottom: 20px">직원 현황</h2>
-									<div style="text-align: right">
-										<span th:text="${indexData.today}">날짜</span>
-									</div>
-									<br>
-									<h3>
-										총 재직인원 : <span th:text="${indexData.rightEmpCount} + ' 명'">0명</span>
-									</h3>
-									<div>
-										출근 인원 :
-										<span th:text="${indexData.rightEmpWorkCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										결근 인원 :
-										<span th:text="${indexData.rightEmpAbsentCount} + ' 명'">0명</span>
-									</div>
-									<br>
-									<h3>투입 현황</h3>
-									<div>
-										투입 인원 :
-										<span th:text="${indexData.rightEmpProjectYCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										미투입 인원 :
-										<span th:text="${indexData.rightEmpProjectNCount} + ' 명'">0명</span>
-									</div>
-									<br>
-									<h3>연차 현황</h3>
-									<div>
-										휴가 사용 인원 :
-										<span th:text="${indexData.rightOffCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										연차 사용 인원 :
-										<span th:text="${indexData.rightOffAnnuCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										반차(오전) 사용 인원 :
-										<span th:text="${indexData.rightOffHalfAMCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										반차(오후) 사용 인원 :
-										<span th:text="${indexData.rightOffHalfPMCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										병가 사용 인원 :
-										<span th:text="${indexData.rightOffSickCount} + ' 명'">0명</span>
-									</div>
-									<div>
-										기타 사용 인원 :
-										<span th:text="${indexData.rightOffEtcCount} + ' 명'">0명</span>
-									</div>
-								</article>
+            <article
+              style="
+                grid-row-start: 1;
+                grid-row-end: 3;
+                grid-column-start: 2;
+                padding: 20px;
+                margin: 20px;
+                border-radius: 10px;
+                border: 1px solid rgb(255, 189, 182);
+              "
+            >
+              <h2 style="text-align: center; margin-bottom: 20px">직원 현황</h2>
+              <div style="text-align: right">
+                <span th:text="${indexData.today}">날짜</span>
+              </div>
+              <br />
+              <h3>
+                총 재직인원 :
+                <span th:text="${indexData.rightEmpCount} + ' 명'">0명</span>
+              </h3>
+              <div>
+                출근 인원 :
+                <span th:text="${indexData.rightEmpWorkCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <div>
+                결근 인원 :
+                <span th:text="${indexData.rightEmpAbsentCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <br />
+              <h3>투입 현황</h3>
+              <div>
+                투입 인원 :
+                <span th:text="${indexData.rightEmpProjectYCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <div>
+                미투입 인원 :
+                <span th:text="${indexData.rightEmpProjectNCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <br />
+              <h3>연차 현황</h3>
+              <div>
+                휴가 사용 인원 :
+                <span th:text="${indexData.rightOffCount} + ' 명'">0명</span>
+              </div>
+              <div>
+                연차 사용 인원 :
+                <span th:text="${indexData.rightOffAnnuCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <div>
+                반차(오전) 사용 인원 :
+                <span th:text="${indexData.rightOffHalfAMCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <div>
+                반차(오후) 사용 인원 :
+                <span th:text="${indexData.rightOffHalfPMCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <div>
+                병가 사용 인원 :
+                <span th:text="${indexData.rightOffSickCount} + ' 명'"
+                  >0명</span
+                >
+              </div>
+              <div>
+                기타 사용 인원 :
+                <span th:text="${indexData.rightOffEtcCount} + ' 명'">0명</span>
+              </div>
+            </article>
 
-								<article style="display: grid; grid-template-columns: 1fr 1fr">
-									<div
-											style="
-												border-radius: 25px;
-												padding: 20px;
-												margin: 20px;
-												padding: 20px;
-												margin: 20px;
-												border-radius: 10px;
-												border: 1px solid rgb(255, 189, 182);
-											"
-									>
-										<h2 style="text-align: center; margin-bottom: 30px">
-											공지사항 목록
-										</h2>
-										<div th:each="notice : ${indexData.noticeLists}" style="display: grid; grid-template-columns: 1fr 1fr;">
-											<span th:text="${notice.noticeListTitle}">제목</span>
-											<span th:text="${notice.noticeListRegDate}" style="text-align: right;">작성일</span>
-										</div>
-										</ul>
-									</div>
+            <article style="display: grid; grid-template-columns: 1fr 1fr">
+              <div
+                style="
+                  border-radius: 25px;
+                  padding: 20px;
+                  margin: 20px;
+                  padding: 20px;
+                  margin: 20px;
+                  border-radius: 10px;
+                  border: 1px solid rgb(255, 189, 182);
+                "
+              >
+                <h2 style="text-align: center; margin-bottom: 30px">
+                  공지사항 목록
+                </h2>
+                <div
+                  th:each="notice : ${indexData.noticeLists}"
+                  style="display: grid; grid-template-columns: 1fr 1fr"
+                >
+                  <span th:text="${notice.noticeListTitle}">제목</span>
+                  <span
+                    th:text="${notice.noticeListRegDate}"
+                    style="text-align: right"
+                    >작성일</span
+                  >
+                </div>
+              </div>
 
-									<div
-											style="
-												border-radius: 25px;
-												padding: 20px;
-												margin: 20px;
-												padding: 20px;
-												margin: 20px;
-												border-radius: 10px;
-												border: 1px solid rgb(255, 189, 182);
-											"
-									>
-										<h2 style="text-align: center; margin-bottom: 30px">
-											휴가신청 현황
-										</h2>
-										<div>
-											총 신청 수 :
-											<span th:text="${indexData.requestOffCount} + ' 명'">0명</span>
-										</div>
-										<div>
-											연차 신청 수 :
-											<span th:text="${indexData.requestOffAnnuCount} + ' 명'">0명</span>
-										</div>
-										<div>
-											반차(오전) 신청 수 :
-											<span th:text="${indexData.requestOffHalfAMCount} + ' 명'">명0</span>
-										</div>
-										<div>
-											반차(오후) 신청 수 :
-											<span th:text="${indexData.requestOffHalfPMCount} + ' 명'">0명</span>
-										</div>
-										<div>
-											병가 신청 수 :
-											<span th:text="${indexData.requestOffSickCount} + ' 명'">0명</span>
-										</div>
-										<div>
-											기타 신청 수 :
-											<span th:text="${indexData.requestOffEtcCount} + ' 명'">0명</span>
-										</div>
-									</div>
-								</article>
-							</section>
-						</div>
-					</div>
-					<div th:replace="sidebar :: sidebarFragment"></div>
+              <div
+                style="
+                  border-radius: 25px;
+                  padding: 20px;
+                  margin: 20px;
+                  padding: 20px;
+                  margin: 20px;
+                  border-radius: 10px;
+                  border: 1px solid rgb(255, 189, 182);
+                "
+              >
+                <h2 style="text-align: center; margin-bottom: 30px">
+                  휴가신청 현황
+                </h2>
+                <div>
+                  총 신청 수 :
+                  <span th:text="${indexData.requestOffCount} + ' 명'"
+                    >0명</span
+                  >
+                </div>
+                <div>
+                  연차 신청 수 :
+                  <span th:text="${indexData.requestOffAnnuCount} + ' 명'"
+                    >0명</span
+                  >
+                </div>
+                <div>
+                  반차(오전) 신청 수 :
+                  <span th:text="${indexData.requestOffHalfAMCount} + ' 명'"
+                    >명0</span
+                  >
+                </div>
+                <div>
+                  반차(오후) 신청 수 :
+                  <span th:text="${indexData.requestOffHalfPMCount} + ' 명'"
+                    >0명</span
+                  >
+                </div>
+                <div>
+                  병가 신청 수 :
+                  <span th:text="${indexData.requestOffSickCount} + ' 명'"
+                    >0명</span
+                  >
+                </div>
+                <div>
+                  기타 신청 수 :
+                  <span th:text="${indexData.requestOffEtcCount} + ' 명'"
+                    >0명</span
+                  >
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+      <div th:replace="sidebar :: sidebarFragment"></div>
+    </div>
 
-			</div>
-
-		<!-- Scripts -->
-			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/browser.min.js"></script>
-			<script src="/assets/js/breakpoints.min.js"></script>
-			<script src="/assets/js/util.js"></script>
-			<script src="/assets/js/main.js"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>
