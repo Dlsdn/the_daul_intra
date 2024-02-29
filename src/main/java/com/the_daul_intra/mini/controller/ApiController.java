@@ -4,6 +4,7 @@ package com.the_daul_intra.mini.controller;
 import com.the_daul_intra.mini.dto.entity.DetailsLeaveAbsence;
 import com.the_daul_intra.mini.dto.request.*;
 import com.the_daul_intra.mini.dto.response.*;
+import com.the_daul_intra.mini.service.ApiCommuteService;
 import com.the_daul_intra.mini.service.ApiEmpService;
 import com.the_daul_intra.mini.service.ApiLeaveService;
 import com.the_daul_intra.mini.service.ApiNoticeService;
@@ -23,6 +24,7 @@ public class ApiController {
     private final ApiEmpService apiEmpService;
     private final ApiLeaveService apiLeaveService;
     private final ApiNoticeService apiNoticeService;
+    private final ApiCommuteService apiCommuteService;  // 출퇴근 api 서비스
 
     //로그인 컨트롤러
     @PostMapping("/login")
@@ -80,4 +82,10 @@ public class ApiController {
         return ResponseEntity.ok(response);
     }
 
+    // 출퇴근 기록 작성 컨트롤러
+    @PostMapping("/commute")
+    public ResponseEntity<?> postCommute(@RequestBody ApiCommuteRequest commute) {
+        apiCommuteService.createCommute(commute);
+        return ResponseEntity.ok("출퇴근 완료");
+    }
 }

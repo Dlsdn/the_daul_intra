@@ -61,7 +61,7 @@ public class CommuteService {
             return new CommuteListResponse(
                     commuteList.getId(),
                     (long) startNumber.getAndDecrement(),
-                    commuteList.getEmployeeProfileID().getName(),
+                    commuteList.getEmployeeProfile().getName(),
                     onWorkTimeStr,
                     commuteList.getOnWorkLatitude(),
                     commuteList.getOnWorkLongitude(),
@@ -75,4 +75,5 @@ public class CommuteService {
             );
         });
     }
+    
 }

@@ -20,33 +20,33 @@ public class Commute {
 
     @ManyToOne
     @JoinColumn(name = "EMPLOYEE_PROFILE_ID", referencedColumnName = "ID")
-    private EmployeeProfile employeeProfileID;   // 사원 ID
+    private EmployeeProfile employeeProfile;   // 사원 ID
 
-    @Column(name = "ONWORK_TIME", nullable = true)
+    @Column(name = "ONWORK_TIME")
     private LocalDateTime onWorkTime;     // 츌근 시간
 
-    @Column(name = "ONWORK_LATITUDE", nullable = true)
+    @Column(name = "ONWORK_LATITUDE")
     private String onWorkLatitude;      // 출근 위도
 
-    @Column(name = "ONWORK_LONGITUDE", nullable = true)
+    @Column(name = "ONWORK_LONGITUDE")
     private String onWorkLongitude;     // 출근 경도
 
-    @Column(name = "ONWORK_IP_ADDRESS", nullable = true)
+    @Column(name = "ONWORK_IP_ADDRESS")
     private String onWorkIPAddress;     // 출근 IP 주소
 
     @Enumerated(EnumType.STRING)
     private YesNo onWorkStatus;        // 출근 여부 Y/N
 
-    @Column(name = "OFFWORK_TIME", nullable = true)
+    @Column(name = "OFFWORK_TIME")
     private LocalDateTime offWorkTime;    // 퇴근 시간
 
-    @Column(name = "OFFWORK_LATITUDE", nullable = true)
+    @Column(name = "OFFWORK_LATITUDE")
     private String offWorkLatitude;     // 퇴근 위도
 
-    @Column(name = "OFFWORK_LONGITUDE", nullable = true)
+    @Column(name = "OFFWORK_LONGITUDE")
     private String offWorkLongitude;    // 퇴근 경도
 
-    @Column(name = "OFFWORK_IP_ADDRESS", nullable = true)
+    @Column(name = "OFFWORK_IP_ADDRESS")
     private String offWorkIPAddress;     // 퇴근 IP 주소
 
     @Enumerated(EnumType.STRING)
