@@ -52,12 +52,13 @@ public class CommuteService {
         // 현재 페이지의 첫 번째 출퇴근 기록 번호
         AtomicInteger startNumber = new AtomicInteger((int) totalList - (page - 1) * size);
 
-        // 출퇴근 시간 FORMAT
-        
+        // getCommuteList()는 출퇴근 기록 전체를 리턴
         return commutePages.map(commuteList -> {
+            // 출퇴근 시간 FORMAT
             String onWorkTimeStr = commuteList.getOnWorkTime() != null ? commuteList.getOnWorkTime().format(formatter) : null;
             String offWorkTimeStr = commuteList.getOffWorkTime() != null ? commuteList.getOffWorkTime().format(formatter) : null;
             
+            // 출퇴근 기록 하나를 리턴, map() 함수를 통해 배열 안의 원소를 전부 꺼내기 때문에, 결국 기록 전체가 리턴되게 된다
             return new CommuteListResponse(
                     commuteList.getId(),
                     (long) startNumber.getAndDecrement(),

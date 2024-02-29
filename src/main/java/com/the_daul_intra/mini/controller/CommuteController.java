@@ -25,8 +25,8 @@ public class CommuteController {
             @RequestParam(value = "size", defaultValue = "20") Integer size,
             @RequestParam(required = false) String onOffWorkType,
             Model model) {
-        Page<CommuteListResponse> commuteList = commuteService.getCommuteList(page, size, onOffWorkType);
-        model.addAttribute("commuteList", commuteList);
-        return "commute";
+        Page<CommuteListResponse> commuteList = commuteService.getCommuteList(page, size, onOffWorkType);   // 서비스 함수 호출
+        model.addAttribute("commuteList", commuteList); // 관리자 웹 페이지 측, mvc, model에 저장
+        return "commute";   // html 파일 이름, 표시해 두면 자동으로 그 파일을 찾아감
     }
 }

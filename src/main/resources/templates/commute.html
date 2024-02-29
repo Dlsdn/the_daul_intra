@@ -39,7 +39,9 @@
                 </tr>
               </thead>
               <tbody>
+                <!-- 이건 뭔지 잘 모르겠는데, model에 저장된 값(commuteList)를 commute라는 변수에 저장하는 것 같음 -->
                 <tr th:each="commute : ${commuteList}">
+                  <!-- 그래서 이 아래에서는 commute라는 변수에 저장된 값을 이용 -->
                   <td th:text="${commute.rowNum}"></td>
                   <td th:text="${commute.employeeName}"></td>
                   <td th:text="${commute.onWorkTime}"></td>
